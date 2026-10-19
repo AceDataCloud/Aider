@@ -12,6 +12,7 @@ on:
 
 jobs:
   check_version:
+    if: github.repository == 'Aider-AI/aider'
     runs-on: windows-latest
     strategy:
       matrix:

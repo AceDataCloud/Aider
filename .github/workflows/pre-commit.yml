@@ -6,6 +6,7 @@ on:
   workflow_dispatch:
 jobs:
   pre-commit:
+    if: github.repository == 'Aider-AI/aider'
     runs-on: ubuntu-latest
     env:
       RAW_LOG: pre-commit.log
