@@ -1,3 +1,8 @@
+> **Ace Data Cloud candidate fork:** this is not an official Aider AI release.
+> For the separately named `acedatacloud-aider` package and `ace-aider` command,
+> use the [Ace GitHub Release installation guide](acedatacloud/RELEASE.md).
+> The original Aider documentation below describes the upstream project.
+
 <p align="center">
     <a href="https://aider.chat/"><img src="https://aider.chat/assets/logo.svg" alt="Aider Logo" width="300"></a>
 </p>

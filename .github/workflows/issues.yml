@@ -6,6 +6,7 @@ on:
 
 jobs:
   process-issues:
+    if: github.repository == 'Aider-AI/aider'
     runs-on: ubuntu-latest
     permissions:
       issues: write  # Required to modify issues

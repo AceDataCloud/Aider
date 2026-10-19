@@ -31,6 +31,7 @@ concurrency:
 jobs:
   # Build job
   build:
+    if: github.repository == 'Aider-AI/aider'
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -62,6 +63,7 @@ jobs:
 
   # Deployment job
   deploy:
+    if: github.repository == 'Aider-AI/aider'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
