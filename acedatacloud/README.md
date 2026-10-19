@@ -2,13 +2,13 @@
 
 This is the Ace Data Cloud maintained **candidate** for Aider's named coding-model provider, based on upstream commit `5dc9490bb35f9729ef2c95d00a19ccd30c26339c`. It is not an official Aider release, marketplace plugin, or an endorsement by Aider AI.
 
-**Source review:** see the pull request in this repository. The official upstream currently has no Ace Data Cloud preset. After upstream review and a release containing it, the intended user flow is `aider --model acedatacloud/<model>` with a dedicated `ACEDATACLOUD_API_KEY`, without a separate base URL.
+**Ace candidate now available:** install the [GitHub prerelease](https://github.com/AceDataCloud/Aider/releases/tag/ace-v0.86.3a20261019) using the [separate-environment guide](RELEASE.md). It uses the `ace-aider` command and `ACEDATACLOUD_API_KEY`, without a separate base URL. This is still not an official Aider AI release; [upstream review](https://github.com/Aider-AI/aider/pull/5868) remains pending.
 
 ## Install and choose the correct version
 
 Start with [Aider's official installation instructions](https://aider.chat/docs/install.html). Current stable `aider-chat==0.86.2` does **not** include this candidate. Use the existing [manual Ace setup](https://platform.acedata.cloud/documents/aider-cli-integration?utm_source=github&utm_medium=referral&utm_campaign=evergreen&utm_content=aider_readme_setup) with that release; do not paste the new provider selector into an unmodified stable installation and assume it works.
 
-For source reviewers, use a separate environment, check out this candidate branch, install its declared dependencies and run the offline tests. Keep real credentials out of source review. No official package or marketplace installation is claimed here.
+The separately named `acedatacloud-aider` candidate wheel is public on GitHub Releases, not PyPI. Follow [the candidate install guide](RELEASE.md); do not install it alongside `aider-chat`, because both contain module `aider`. Source reviewers can still inspect the code and offline tests. No official package or marketplace installation is claimed here.
 
 ## Register and create a token
 
@@ -22,14 +22,14 @@ For source reviewers, use a separate environment, check out this candidate branc
 
 These are original Ace Applications screenshots from source commit dated 2026-10-08, reused from SunoDify. The example name `Dify tutorial` is not a required value: use `Aider`. Restrict to the Chat Completions API used by your selected coding model, not the Suno APIs in the original tutorial. Copy only the token string; do not add `Bearer ` or use a platform management token.
 
-## Native selector in the candidate source
+## Native selector in the Ace candidate
 
 Load `ACEDATACLOUD_API_KEY` from your secret manager into the shell that starts Aider, then choose an exact model your account permits:
 
 ```bash
 export ACEDATACLOUD_API_KEY
-aider --list-models acedatacloud/
-aider --model acedatacloud/gpt-4.1
+ace-aider --list-models acedatacloud/
+ace-aider --model acedatacloud/gpt-4.1
 ```
 
 The candidate recognizes the provider, uses `https://api.acedata.cloud/v1`, and requires its own key even when an OpenAI or Copilot key is present. It does not replace another provider's credentials or choose a paid fallback. The key must already contain a value; `export` alone does not create one. User-provided model metadata may be loaded explicitly, but another provider's prices and context limits are not copied.
